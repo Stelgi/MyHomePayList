@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         if(dba.connectToDB(getBaseContext())){
             //next action
         }
-//sssssss
+//aser
             //db.execSQL("CREATE TABLE IF NOT EXISTS users('name' TEXT, 'age' INTEGER)");
             //db.execSQL("INSERT OR IGNORE INTO users VALUES ('Tom Smith', 23), ('John Dow', 31);");
 
