@@ -3,4 +3,5 @@
     <string name="btnMain">Периоды</string>
     <string name="addBtnMain">Добавить</string>
     <string name="paidInfoTextView">Оплачено:</string>
+    <string name="unpaidInfoTextView">Не оплачено:</string>
 </resources>

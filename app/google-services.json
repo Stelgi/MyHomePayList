@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1068372557376",
+    "firebase_url": "https://myhomepaylist-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "myhomepaylist",
+    "storage_bucket": "myhomepaylist.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068372557376:android:3fa5e8292a3c7a999969a5",
+        "android_client_info": {
+          "package_name": "com.example.myhomepaylist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1068372557376-4a1b0s446fkqglicrcecvsa9ptktomm7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5lTHjDALvb3jAepf8PAWmQEg7uLiZoGQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1068372557376-4a1b0s446fkqglicrcecvsa9ptktomm7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

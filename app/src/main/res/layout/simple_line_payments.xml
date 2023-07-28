@@ -8,17 +8,17 @@
     <TextView
         android:id="@+id/textView123"
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="64dp"
         android:gravity="center"
         android:text="TextView"
-        android:textColor="@android:color/holo_blue_bright"
-        android:textSize="38sp" />
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="24sp" />
 
     <View
         android:id="@+id/horLine"
         android:layout_width="match_parent"
         android:layout_height="1sp"
         android:layout_gravity="center"
-        android:background="@android:color/holo_blue_bright"/>
+        android:background="@android:color/holo_blue_dark"/>
 
 </LinearLayout>

@@ -4,27 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityTwo">
+    tools:context=".PeriodActivity">
 
     <TextView
         android:id="@+id/monthNameOpenMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:text="TextView"
         android:textSize="45sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/mainLinearPayment"/>
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="649dp"
-        android:layout_marginTop="25dp"
+        android:id="@+id/mainLinearPayment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/monthNameOpenMenu">
+        app:layout_constraintTop_toBottomOf="@+id/monthNameOpenMenu"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
             android:id="@+id/paidInfoText"
@@ -38,13 +39,36 @@
             android:id="@+id/paidInfoAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:text="3 из 8"
             android:textAlignment="center"
-            android:textSize="28sp"
-            android:layout_marginBottom="25dp"/>
+            android:textSize="28sp" />
 
         <ListView
             android:id="@+id/menuPaidPosition"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/unpaidInfoText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/unpaidInfoTextView"
+            android:textAlignment="center"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/unpaidInfoAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:text="5 из 8"
+            android:textAlignment="center"
+            android:textSize="28sp" />
+
+        <ListView
+            android:id="@+id/menuUnPaidPosition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
