@@ -6,6 +6,15 @@ public class Payment implements Serializable {
     private int id;
     private String title;
     private int periodId;
+    private boolean ready;
+
+    public boolean isReady() {
+        return ready;
+    }
+
+    public void setReady(boolean ready) {
+        this.ready = ready;
+    }
 
     public int getPeriodId() {
         return periodId;
@@ -35,9 +44,10 @@ public class Payment implements Serializable {
 
     }
 
-    public Payment(int id, String title, int periodId) {
+    public Payment(int id, String title, int periodId, boolean ready) {
         this.id = id;
         this.title = title;
         this.periodId = periodId;
+        this.ready = ready;
     }
 }

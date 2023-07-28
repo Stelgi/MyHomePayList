@@ -39,15 +39,29 @@
             android:id="@+id/paidInfoAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
             android:text="3 из 8"
             android:textAlignment="center"
             android:textSize="28sp" />
 
+        <View
+            android:id="@+id/horLine1"
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:layout_gravity="center"
+            android:background="@android:color/holo_blue_dark"/>
+
         <ListView
             android:id="@+id/menuPaidPosition"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <View
+            android:id="@+id/horLine2"
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:layout_gravity="center"
+            android:background="@android:color/holo_blue_dark"/>
 
         <TextView
             android:id="@+id/unpaidInfoText"
@@ -61,14 +75,22 @@
             android:id="@+id/unpaidInfoAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
             android:text="5 из 8"
             android:textAlignment="center"
             android:textSize="28sp" />
 
+        <View
+            android:id="@+id/horLine3"
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:layout_gravity="center"
+            android:background="@android:color/holo_blue_dark"/>
+
         <ListView
             android:id="@+id/menuUnPaidPosition"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="16dp"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

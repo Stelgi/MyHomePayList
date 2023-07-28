@@ -42,11 +42,11 @@ public class AddingPeriodActivity extends AppCompatActivity {
     private void initPeriod(int id){
         long currentTime = System.currentTimeMillis();
         Random random = new Random(currentTime);
-        Payment pay1 = new Payment(random.nextInt(1000000), "Электричество + ТКО", id);
-        Payment pay2 = new Payment(random.nextInt(1000000), "Ростелеком (Телефон)", id);
-        Payment pay3 = new Payment(random.nextInt(1000000), "Интернет", id);
-        Payment pay4 = new Payment(random.nextInt(1000000), "Вода (РАЦ)", id);
-        Payment pay5 = new Payment(random.nextInt(1000000), "Кабельное", id);
+        Payment pay1 = new Payment(random.nextInt(1000000), "Электричество + ТКО", id, false);
+        Payment pay2 = new Payment(random.nextInt(1000000), "Ростелеком (Телефон)", id, false);
+        Payment pay3 = new Payment(random.nextInt(1000000), "Интернет", id, false);
+        Payment pay4 = new Payment(random.nextInt(1000000), "Вода (РАЦ)", id, false);
+        Payment pay5 = new Payment(random.nextInt(1000000), "Кабельное", id, false);
         databaseReference2.push().setValue(pay1);
         databaseReference2.push().setValue(pay2);
         databaseReference2.push().setValue(pay3);

@@ -24,9 +24,9 @@ public class PeriodActivity extends AppCompatActivity {
     private TextView textView;
     private Period period;
     private DatabaseReference databaseReference;
-    private ArrayList<Payment> payments;
-    private ListView menuPaidPosition;
-    private CustomPaymentAdapter adapter;
+    private ArrayList<Payment> payments, payments2;
+    private ListView menuPaidPosition, menuUnPaidPosition;
+    private CustomPaymentAdapter adapter, adapter2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,10 +51,15 @@ public class PeriodActivity extends AppCompatActivity {
         textView = findViewById(R.id.monthNameOpenMenu);
         textView.setText(period.getTitle());
         payments = new ArrayList<>();
+        payments2 = new ArrayList<>();
         menuPaidPosition = findViewById(R.id.menuPaidPosition);
+        menuUnPaidPosition = findViewById(R.id.menuUnPaidPosition);
         //Инициализируем адаптер
         adapter = new CustomPaymentAdapter(this, payments);
+        adapter2 = new CustomPaymentAdapter(this, payments2);
         menuPaidPosition.setAdapter(adapter);
+        menuUnPaidPosition.setAdapter(adapter2);
+
         initDatabase();
     }
 
@@ -64,12 +69,19 @@ public class PeriodActivity extends AppCompatActivity {
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(payments.size() > 0) payments.clear();
+                if(payments2.size() > 0) payments2.clear();
                 for (DataSnapshot ds: snapshot.getChildren()){
                     Payment payment = ds.getValue(Payment.class);
                     if(payment.getPeriodId() == period.getId()){
-                        payments.add(payment);
+                        if(payment.isReady()){
+                            payments.add(payment);
+                        }else{
+                            payments2.add(payment);
+                        }
                     }
                     adapter.notifyDataSetChanged();
+                    adapter2.notifyDataSetChanged();
                 }
             }
 
