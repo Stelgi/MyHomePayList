@@ -4,4 +4,6 @@
     <string name="addBtnMain">Добавить</string>
     <string name="paidInfoTextView">Оплачено:</string>
     <string name="unpaidInfoTextView">Не оплачено:</string>
+    <string name="statusPaidText">ОПЛАЧЕНО</string>
+    <string name="statusUnPaidText">НЕ ОПЛАЧЕНО</string>
 </resources>

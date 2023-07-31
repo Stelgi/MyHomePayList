@@ -1,11 +1,16 @@
 package com.example.myhomepaylist.adapters;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
 
 import com.example.myhomepaylist.R;
 import com.example.myhomepaylist.simple.Payment;
@@ -44,9 +49,20 @@ public class CustomPaymentAdapter extends BaseAdapter {
         }
 
         TextView textViewTitle = convertView.findViewById(R.id.textView123);
+        Button button = convertView.findViewById(R.id.newBTN);
 
         String listItemData = dataList.get(position).getTitle();
-
+        if(dataList.get(position).isReady()){
+            button.setText(R.string.statusPaidText);
+            int color = ContextCompat.getColor(this.context, R.color.purple_500);
+            ColorStateList colorStateList = ColorStateList.valueOf(color);
+            button.setBackgroundTintList(colorStateList);
+        }else{
+            button.setText(R.string.statusUnPaidText);
+            int color = ContextCompat.getColor(this.context, R.color.c2);
+            ColorStateList colorStateList = ColorStateList.valueOf(color);
+            button.setBackgroundTintList(colorStateList);
+        }
         textViewTitle.setText(listItemData);
 
         return convertView;

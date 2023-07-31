@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class PeriodActivity extends AppCompatActivity {
-    private TextView textView;
+    private TextView textView, paidInfoAmount, unpaidInfoAmount;
     private Period period;
     private DatabaseReference databaseReference;
     private ArrayList<Payment> payments, payments2;
@@ -50,6 +50,8 @@ public class PeriodActivity extends AppCompatActivity {
         period = (Period) getIntent().getSerializableExtra("Period");
         textView = findViewById(R.id.monthNameOpenMenu);
         textView.setText(period.getTitle());
+        unpaidInfoAmount = findViewById(R.id.unpaidInfoAmount);
+        paidInfoAmount = findViewById(R.id.paidInfoAmount);
         payments = new ArrayList<>();
         payments2 = new ArrayList<>();
         menuPaidPosition = findViewById(R.id.menuPaidPosition);
@@ -83,6 +85,9 @@ public class PeriodActivity extends AppCompatActivity {
                     adapter.notifyDataSetChanged();
                     adapter2.notifyDataSetChanged();
                 }
+                int a = payments.size() + payments2.size();
+                paidInfoAmount.setText(payments.size() + " из " + a);
+                unpaidInfoAmount.setText(payments2.size() + " из " + a);
             }
 
             @Override
