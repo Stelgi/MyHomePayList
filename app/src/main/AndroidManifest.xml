@@ -12,12 +12,16 @@
         android:theme="@style/Theme.MyHomePayList"
         tools:targetApi="31">
         <activity
+            android:name=".PaymentInfoActivity"
+            android:parentActivityName=".PeriodActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddingPeriodActivity"
             android:exported="false" />
         <activity
             android:name=".PeriodActivity"
-            android:parentActivityName=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

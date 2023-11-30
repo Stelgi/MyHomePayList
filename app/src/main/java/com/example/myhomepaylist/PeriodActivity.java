@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -34,7 +36,7 @@ public class PeriodActivity extends AppCompatActivity {
         setContentView(R.layout.period_activity);
         init();//Инициализируем период
 
-
+        System.out.println("1");
 
 //        Bundle arguments = getIntent().getExtras();
 //        String nameMonth = arguments.get("nameMonth").toString();
@@ -43,7 +45,6 @@ public class PeriodActivity extends AppCompatActivity {
 //        con.setSpan(new UnderlineSpan(), 0, nameMonth.length(), 0);
 //        textView = findViewById(R.id.monthNameOpenMenu);
 //        textView.setText(con);
-
     }
 
     private void init(){
@@ -108,4 +109,18 @@ public class PeriodActivity extends AppCompatActivity {
 //        }
 //        return super.onOptionsItemSelected(item);
 //    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        System.out.println("2");
+    }
+
+    @Override
+    public void onBackPressed() {
+        System.out.println("3");
+        super.onBackPressed();
+        System.out.println("3");
+    }
 }

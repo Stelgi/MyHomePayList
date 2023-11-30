@@ -3,9 +3,11 @@ package com.example.myhomepaylist;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.myhomepaylist.simple.Payment;
 import com.example.myhomepaylist.simple.Period;
@@ -64,6 +66,12 @@ public class AddingPeriodActivity extends AppCompatActivity {
         databaseReference.push().setValue(period);
 
         initPeriod(periodId);
-
+        Toast.makeText(this, "Период добавлен", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                AddingPeriodActivity.this.finish();
+            }
+        }, 2000);
     }
 }

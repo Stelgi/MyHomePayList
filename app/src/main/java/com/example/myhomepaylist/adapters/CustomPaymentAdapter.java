@@ -1,6 +1,7 @@
 package com.example.myhomepaylist.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 
+import com.example.myhomepaylist.PaymentInfoActivity;
 import com.example.myhomepaylist.R;
 import com.example.myhomepaylist.simple.Payment;
 import com.example.myhomepaylist.simple.Period;
@@ -26,7 +28,6 @@ public class CustomPaymentAdapter extends BaseAdapter {
         this.context = context;
         this.dataList = dataList;
     }
-
     @Override
     public int getCount() {
         return dataList.size();
@@ -64,6 +65,14 @@ public class CustomPaymentAdapter extends BaseAdapter {
             button.setBackgroundTintList(colorStateList);
         }
         textViewTitle.setText(listItemData);
+
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, PaymentInfoActivity.class);
+                context.startActivity(intent);
+            }
+        });
 
         return convertView;
     }
