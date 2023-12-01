@@ -1,9 +1,11 @@
 package com.example.myhomepaylist;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +13,8 @@ import android.widget.Toast;
 
 import com.example.myhomepaylist.simple.Payment;
 import com.example.myhomepaylist.simple.Period;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -61,9 +65,22 @@ public class AddingPeriodActivity extends AppCompatActivity {
         period.setTitle(namePeriod.getText().toString());
         long currentTime = System.currentTimeMillis();
         Random random = new Random(currentTime);
-        int periodId = random.nextInt(1000000);
+
+        int periodId = MainActivity.currentID.intValue() + 1;
         period.setId(periodId);
-        databaseReference.push().setValue(period);
+        FirebaseDatabase.getInstance().getReference().child("UserID").setValue(periodId);
+        //databaseReference.push().setValue(period);
+        databaseReference.child(String.valueOf(periodId)).setValue(period)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("YourTag", "Data added successfully");
+                        } else {
+                            Log.e("YourTag", "Error adding data", task.getException());
+                        }
+                    }
+                });
 
         initPeriod(periodId);
         Toast.makeText(this, "Период добавлен", Toast.LENGTH_SHORT).show();

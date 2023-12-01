@@ -26,13 +26,26 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<Period> arrayList;
     private ArrayAdapter<Period> arrayAdapter;
     public static CustomListAdapter adapter;
-    private DatabaseReference databaseReference;
+    public static Long currentID;
+    private DatabaseReference databaseReference, databaseReference2;
     private DataBaseActivity dba;
     private Button btnAdd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        databaseReference2 = FirebaseDatabase.getInstance().getReference().child("UserID");
+        databaseReference2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                currentID = (Long) snapshot.getValue();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                System.out.println("Error getting data");
+            }
+        });
         initView();
 
 

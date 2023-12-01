@@ -8,8 +8,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myhomepaylist.adapters.CustomPaymentAdapter;
 import com.example.myhomepaylist.simple.Payment;
@@ -29,6 +31,7 @@ public class PeriodActivity extends AppCompatActivity {
     private ArrayList<Payment> payments, payments2;
     private ListView menuPaidPosition, menuUnPaidPosition;
     private CustomPaymentAdapter adapter, adapter2;
+    private Button btnDeleteActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +40,14 @@ public class PeriodActivity extends AppCompatActivity {
         init();//Инициализируем период
 
         System.out.println("1");
-
+        btnDeleteActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Period");
+                System.out.println("Period is " + period.getId());
+                databaseReference.child("-NkVeT_b0NDc1qtssBez").removeValue();
+            }
+        });
 //        Bundle arguments = getIntent().getExtras();
 //        String nameMonth = arguments.get("nameMonth").toString();
 //
@@ -62,7 +72,7 @@ public class PeriodActivity extends AppCompatActivity {
         adapter2 = new CustomPaymentAdapter(this, payments2);
         menuPaidPosition.setAdapter(adapter);
         menuUnPaidPosition.setAdapter(adapter2);
-
+        btnDeleteActivity = findViewById(R.id.btnDeletePeriod);
         initDatabase();
     }
 
