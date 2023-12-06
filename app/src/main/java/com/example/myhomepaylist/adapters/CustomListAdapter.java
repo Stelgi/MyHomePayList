@@ -48,7 +48,6 @@ public class CustomListAdapter extends BaseAdapter {
 
 
         String listItemData = dataList.get(position).getTitle();
-
         textViewTitle.setText(listItemData);
 
         return convertView;

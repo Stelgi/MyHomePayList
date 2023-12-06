@@ -8,15 +8,15 @@
 
     <TextView
         android:id="@+id/monthNameOpenMenu"
-        android:layout_width="240dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:text="Июнь 2023"
-        android:textSize="45sp"
+        android:text="Сентябрь 2023"
         android:textAlignment="center"
+        android:textSize="38sp"
+        app:layout_constraintBottom_toTopOf="@id/mainLinearPayment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/mainLinearPayment"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnDeletePeriod"

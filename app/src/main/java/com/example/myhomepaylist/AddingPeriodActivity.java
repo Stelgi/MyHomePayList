@@ -82,7 +82,7 @@ public class AddingPeriodActivity extends AppCompatActivity {
                     }
                 });
 
-        initPeriod(periodId);
+        //initPeriod(periodId);
         Toast.makeText(this, "Период добавлен", Toast.LENGTH_SHORT).show();
         new Handler().postDelayed(new Runnable() {
             @Override

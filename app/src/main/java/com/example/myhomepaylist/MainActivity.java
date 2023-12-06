@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -85,10 +86,26 @@ public class MainActivity extends AppCompatActivity {
             btnAdd = findViewById(R.id.btnAddPeriod);
             listView = findViewById(R.id.tl);
             arrayList = new ArrayList();
-            //arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayList);
+            //initArray();
             adapter = new CustomListAdapter(this, arrayList);
-            listView.setAdapter(adapter);
-            initArray();
+            initArray(new DataCallback() {
+                @Override
+                public void onDataLoaded(ArrayList<Period> periods) {
+                    // Устанавливаем адаптер и скролл на середину списка
+//                    listView.setAdapter(adapter);
+//                    int middlePosition = adapter.getCount() / 2;
+//                    listView.setSelection(middlePosition);
+                    listView.setAdapter(adapter);
+                    listView.setSelection(adapter.getCount() / 2);
+                    // Другие действия, которые нужно выполнить после загрузки данных
+                }
+            });
+
+            //arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayList);
+
+
+
+
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -110,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
-        private void initArray(){
+        private void initArray(final DataCallback callback){
             databaseReference = FirebaseDatabase.getInstance().getReference("Period");
             ValueEventListener valueEventListener = new ValueEventListener() {
                 @Override
@@ -121,14 +138,19 @@ public class MainActivity extends AppCompatActivity {
                         arrayList.add(period);
                     }
                     adapter.notifyDataSetChanged();
+
+                    if (callback != null) {
+                        callback.onDataLoaded(arrayList);
+                    }
                 }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
-
+                    Log.e("MainAcitvity", "error", error.toException());
                 }
             };
             databaseReference.addValueEventListener(valueEventListener);
+
         }
 
         private void updateUIWithData(Long a) {
@@ -201,3 +223,4 @@ public class MainActivity extends AppCompatActivity {
 //
 //    }
 }
+
