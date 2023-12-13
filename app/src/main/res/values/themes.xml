@@ -13,4 +13,5 @@
         <item name="android:statusBarColor">@color/purple_500</item>
         <!-- Customize your theme here. -->
     </style>
+
 </resources>

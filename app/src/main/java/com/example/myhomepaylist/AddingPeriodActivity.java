@@ -66,7 +66,7 @@ public class AddingPeriodActivity extends AppCompatActivity {
         long currentTime = System.currentTimeMillis();
         Random random = new Random(currentTime);
 
-        int periodId = MainActivity.currentID.intValue() + 1;
+        int periodId = PaymentListActivity.currentID.intValue() + 1;
         period.setId(periodId);
         FirebaseDatabase.getInstance().getReference().child("UserID").setValue(periodId);
         //databaseReference.push().setValue(period);
