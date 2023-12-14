@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         map.put(R.id.chat, new ChatFragment());
         map.put(R.id.payment_list, new PaymentListFragment());
         map.put(R.id.profile, new ProfileFragment());
-        System.out.println("1234");
         binding.bottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
