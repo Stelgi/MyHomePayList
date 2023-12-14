@@ -9,9 +9,16 @@
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
+
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/purple_500</item>
+        <item name="android:buttonStyle">@style/RoundedButton</item>
+
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="RoundedButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">@drawable/button_one</item>
+        <item name="backgroundTint">@color/purple_600</item>
+    </style>
 </resources>
